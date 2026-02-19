@@ -46,7 +46,7 @@ export class FPTBattery {
 		this.validate_settings();
 
 		// --- Custom FPT plugins 
-		if (!this.settings.progressbar?.disable) {
+		if (!this.settings.disable_progressbar) {
 			this.progressBar = new fptProgressBar();
 		}
 		this.trialTimer = new fptTrialTimer();
@@ -99,16 +99,12 @@ export class FPTBattery {
 				onSaveData: null,
 				onError: null,
 			},
-			progressbar: {
-				disable: true,
-			},
+			disable_progressbar: false,
 			show_inactivity_warning: true,
 			ask_for_task_feedback: false,
 			media_basepath: 'https://fpt.quorumapp.com/static/fpt/img/',
 			minutes_between_task_breaks: null,
 			skip_intro_trials: false,
-			custom_debrief_message_html: null,
-			custom_debrief_btn_txt: 'Exit experiment',
 			// simulate: false,
 			// simulate_trial_duration: 25,
 			// get_simulation_options_func: get_simulation_options,
@@ -153,7 +149,7 @@ export class FPTBattery {
 			}
 		}
 	
-		if (!this.settings.progressbar.disable) {
+		if (!this.settings.disable_progressbar) {
 			const progressContainer = document.createElement('div');
 			progressContainer.id = IDS.progressContainer;
 			progressContainer.style.visibility = 'visible';
@@ -253,8 +249,8 @@ export class FPTBattery {
 		if (!this.session.saved_progress.data_checkpoints.includes('experiment__welcome')) {
 			if (!this.settings.skip_intro_trials) {
 				this.timeline.push(this.trial_generators.browser_check(active_task_instances.map(t => t.instance)));
-				this.timeline.push(this.trial_generators.welcome(!this.settings.progressbar.disable));
-				if (!this.settings.progressbar.disable) {
+				this.timeline.push(this.trial_generators.welcome(!this.settings.disable_progressbar));
+				if (!this.settings.disable_progressbar) {
 					this.timeline.push(this.trial_generators.update_progress_bar(2));
 				}
 			}
@@ -506,7 +502,7 @@ export class FPTBattery {
 					) {
 						html[0] += `<p>Every <b>${self.settings.minutes_between_task_breaks}</b> minutes or so, as you move from one task to the next, you will have the option to take a <b>break</b>. This break won't be timed and you can take as much time as you want. You will NOT be compensated for that time.</p>`;
 					}
-					if (!self.settings.progressbar?.disable) {
+					if (!self.settings.disable_progressbar) {
 						html[0] += `<p>Every time a new tasks starts, you will see a <b>progress bar</b> on the left that indicates how far you've got.</p>`;
 					}
 					html[0] += `<p style="text-align: center; font-weight: bold;">Let's get started!</p>`;
@@ -696,40 +692,13 @@ export class FPTBattery {
 		// };
 
 		trial_generators.debrief = function () {
-			let debrief_html = `<p class="instructions-title">Thank you for completing this study.</p>
-        <p><b>Please click on the button below to register your response.</b></p>`;
-			let btn_txt = 'Exit experiment';
-
-			if (self.settings.custom_debrief_message_html) {
-				debrief_html = self.settings.custom_debrief_message_html;
-			}
-			if (self.settings.custom_debrief_btn_txt) {
-				btn_txt = self.settings.custom_debrief_btn_txt;
-			}
-
 			return {
 				type: instructions,
 				pages: function () {
-					let html = debrief_html;
-
-					if (self.settings.callbacks && self.settings.callbacks.onRedirect) {
-						html += `<button class="jspsych-btn" id="fpt-debrief-btn" style="font-size: 2em;">${btn_txt}</button>`;
-					} else if (self.session.redirect_url) {
-						html += `<a target="_self" href="${self.session.redirect_url}"><button class="jspsych-btn" style="font-size: 2em;">${btn_txt}</button></a>`;
-					}
-
+					let html = `<p class="instructions-title">Thank you for completing this study.</p>`;
 					return [html];
 				},
-				on_load: function () {
-					if (self.settings.callbacks && self.settings.callbacks.onRedirect) {
-						const btn = document.getElementById('fpt-debrief-btn');
-						if (btn) {
-							btn.addEventListener('click', () => {
-								self.settings.callbacks.onRedirect();
-							});
-						}
-					}
-				},
+				on_load: function () {},
 				allow_keys: false,
 				show_clickable_nav: false,
 				allow_backward: false,
