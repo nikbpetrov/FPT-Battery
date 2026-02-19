@@ -16,10 +16,9 @@
     "dist"
   ],
   "scripts": {
-    "dev": "ln -sfn ../src demo/src 2>/dev/null; vite --host",
+    "dev": "vite --host",
     "dev:build": "vite build --watch",
     "build": "vite build",
-    "build:copy": "vite build && cp -r dist/* ../../static/dist/",
     "preview": "vite preview",
     "prepublishOnly": "npm run build"
   },
