@@ -1,0 +1,58 @@
+{
+  "name": "fpt-battery",
+  "version": "0.1.0",
+  "description": "Forecasting Proficiency Test - A jspsych-based experiment battery",
+  "type": "module",
+  "main": "./dist/fpt-battery.umd.js",
+  "module": "./dist/fpt-battery.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/fpt-battery.es.js",
+      "require": "./dist/fpt-battery.umd.js"
+    },
+    "./css": "./dist/fpt-battery.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite --host",
+    "dev:build": "vite build --watch",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@jspsych/plugin-browser-check": "^1.0.3",
+    "@jspsych/plugin-call-function": "^1.1.3",
+    "@jspsych/plugin-html-button-response": "^1.1.3",
+    "@jspsych/plugin-html-keyboard-response": "^1.1.3",
+    "@jspsych/plugin-html-slider-response": "^1.1.3",
+    "@jspsych/plugin-instructions": "^1.1.4",
+    "@jspsych/plugin-survey-html-form": "^1.0.3",
+    "@jspsych/plugin-survey-multi-choice": "^1.1.3",
+    "@jspsych/plugin-survey-multi-select": "^1.1.3",
+    "@jspsych/plugin-survey-text": "^1.1.3",
+    "chart.js": "^4.5.1",
+    "jspsych": "^7.3.4"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  },
+  "keywords": [
+    "jspsych",
+    "forecasting",
+    "psychology",
+    "experiment"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikbpetrov/FPT-Battery.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nikbpetrov/FPT-Battery/issues"
+  },
+  "homepage": "https://github.com/nikbpetrov/FPT-Battery",
+  "author": "Nikolay Petrov"
+}

@@ -1,0 +1,9 @@
+.fpt--cognitive_reflection .content-size {
+	width: 80vw;
+	margin-top: 10%;
+	margin-bottom: 3%;
+}
+
+.fpt--cognitive_reflection .jspsych-survey-multi-choice-question {
+	text-align: center !important;
+}

@@ -1,0 +1,54 @@
+.fpt--forecasting_questions .question_box {
+	width: 70vw;
+}
+
+.fpt--forecasting_questions #question_container {
+	text-align: left;
+}
+
+.fpt--forecasting_questions #text_inputs_parent_container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 20%;
+	gap: 10px;
+	margin: 2% auto;
+}
+
+.fpt--forecasting_questions .text_input_container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.fpt--forecasting_questions .text_input_label {
+	text-align: left;
+	flex: 1 1 100%;
+}
+
+.fpt--forecasting_questions .text_input_inside_container {
+	flex: 0 0 auto;
+}
+
+.fpt--forecasting_questions .text_input_inside_container input[type="text"] {
+	width: 150px;
+	height: 30px;
+}
+
+.fpt--forecasting_questions #text_invalid_input {
+	position: absolute;
+	top: 2%;
+	right: 1%;
+	background-color: red;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+	z-index: 10000;
+}
+
+.fpt--forecasting_questions #text_invalid_input.show {
+	opacity: 1;
+}

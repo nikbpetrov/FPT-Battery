@@ -1,0 +1,195 @@
+.fpt--bayesian_update .content-size {
+	width: 80vw;
+	height: 90vh;
+}
+
+.fpt--bayesian_update #jspsych-html-button-response-stimulus {
+	height: 85vh;
+}
+
+.fpt--bayesian_update #jspsych-html-button-response-btngroup {
+	height: 5vh;
+}
+
+.fpt--bayesian_update #draws_container {
+	height: 15%;
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 3%;
+	margin-top: 3%;
+}
+
+.fpt--bayesian_update #current_draw_container,
+.fpt--bayesian_update #past_draws_container {
+	width: 33%;
+	display: flex;
+	flex-direction: column;
+}
+
+.fpt--bayesian_update #current_draw_container {
+	border-right: 2px solid orange;
+}
+
+.fpt--bayesian_update#curr_draw_balls,
+.fpt--bayesian_update #past_draw_balls {
+	position: relative;
+	flex: 1;
+}
+
+.fpt--bayesian_update #boxes_container {
+	height: 40%;
+	position: relative;
+	margin-bottom: 4%;
+}
+
+.fpt--bayesian_update #left_box_label {
+	position: absolute;
+	bottom: 82%;
+	left: 0;
+}
+
+.fpt--bayesian_update #right_box_label {
+	position: absolute;
+	bottom: 82%;
+	right: 0;
+}
+
+.fpt--bayesian_update .box {
+	height: 80%;
+	aspect-ratio: 1;
+	position: absolute;
+	border: 2px solid;
+}
+
+.fpt--bayesian_update #left_box {
+	bottom: 0;
+	left: 0;
+}
+
+.fpt--bayesian_update #right_box {
+	bottom: 0;
+	right: 0;
+}
+
+.fpt--bayesian_update #black_box {
+	border-color: black;
+	border-top: 0;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+.fpt--bayesian_update #black_box_top_border {
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background: black;
+	transform-origin: left center; /* This makes the rotation occur around the left edge */
+	transition: transform 1s;
+}
+
+.fpt--bayesian_update .ball {
+	aspect-ratio: 1;
+	border-radius: 50%;
+	position: absolute;
+	transition: all 400ms ease-in;
+}
+
+.fpt--bayesian_update #question_container {
+	height: 5%;
+	margin-bottom: 3%;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.fpt--bayesian_update #slider_and_labels_container {
+	height: 15%;
+	opacity: 0.5;
+	transition: 200ms;
+	transition: opacity 200ms;
+}
+
+.fpt--bayesian_update #slider_current_selection_container {
+	position: relative;
+	height: 20%;
+	width: 80%;
+	margin: auto auto 1%;
+}
+
+.fpt--bayesian_update #slider_current_selection_text {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	width: max-content;
+}
+
+.fpt--bayesian_update #slider_container {
+	width: 80%;
+	margin: auto;
+}
+
+.fpt--bayesian_update #slider_labels_container {
+	width: 80%;
+	margin: auto auto 3%;
+	position: relative;
+}
+
+.fpt--bayesian_update #slider_labels_container div {
+	font-style: italic;
+	display: inline-block;
+	position: absolute;
+	transform: translate(-50%);
+	font-size: 0.8em;
+}
+
+.fpt--bayesian_update #slider_labels_container div:nth-child(1) {
+	left: 0%;
+}
+
+.fpt--bayesian_update #slider_labels_container div:nth-child(2) {
+	left: 50%;
+}
+
+.fpt--bayesian_update #slider_labels_container div:nth-child(3) {
+	left: 100%;
+	width: max-content;
+}
+
+.fpt--bayesian_update input[type='range']::-webkit-slider-runnable-track {
+	background: var(--track-color);
+}
+
+.fpt--bayesian_update input[type='range']::-moz-range-track {
+	background: var(--track-color);
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.fpt--bayesian_update .fadeIn {
+	animation: 1000ms ease-out 0s 1 fadeIn;
+}
+
+@media only screen and (width <= 930px) {
+.fpt--bayesian_update #question_container {
+		font-size: 1em;
+		margin-bottom: 1%;
+	}
+}
+
+@media only screen and (height <= 600px) {
+.fpt--bayesian_update #question_container {
+		margin-bottom: 1%;
+	}
+
+.fpt--bayesian_update #slider_and_labels_container {
+		height: 20%;
+	}
+}

@@ -1,0 +1,36 @@
+.fpt--impossible_question .content-size {
+	width: 60vw;
+}
+
+.fpt--impossible_question #confidence_question {
+	margin-bottom: 5%;
+	opacity: 0.3;
+	transition: opacity 200ms ease-in;
+}
+
+.fpt--impossible_question #iqc_radio_opts_container {
+	display: flex;
+	flex-direction: column;
+	margin: 5% 0;
+}
+
+.fpt--impossible_question #iqc_slider_labels_container {
+	position: relative;
+	margin: 0 auto 10vh;
+	width: 80%;
+	opacity: 0.3;
+	transition: opacity 200ms ease-in;
+}
+
+.fpt--impossible_question #iqc_labels_container div {
+	/* border: 1px solid transparent; */
+	display: inline-block;
+	position: absolute;
+	text-align: center;
+	width: 20%;
+}
+
+.fpt--impossible_question #iqc_slider_text {
+	font-style: italic;
+	transition: opacity 200ms ease-in;
+}

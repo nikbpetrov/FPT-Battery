@@ -1,0 +1,18 @@
+.fpt--graph_literacy .content-size {
+	width: 80vw;
+	margin-bottom: 3%;
+}
+
+.fpt--graph_literacy .question_container {
+	margin: 2% 0;
+}
+
+.fpt--graph_literacy .radio_opts_container {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.fpt--graph_literacy .hr {
+	width: 60%;
+	opacity: 0.3;
+}

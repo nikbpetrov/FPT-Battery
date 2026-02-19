@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.vscode/
+demo/
+
+simulation.js
+conditional_forecasting_task*

@@ -1,0 +1,150 @@
+body {
+	margin: 0;
+}
+
+#jspsych-target {
+	width: 100vw;
+	height: 100vh;
+}
+
+.jspsych-content-wrapper {
+	background-color: darkgrey;
+}
+
+.instructions-title {
+	font-size: 2em;
+	font-weight: bold;
+	line-height: 1.3em;
+}
+
+.instructions-subtitle {
+	font-size: 1.5em;
+	font-style: italic;
+}
+
+.instructions_width {
+	max-width: 60%;
+}
+
+.instructions_left_align {
+	text-align: left;
+}
+
+.instructions_left_align .jspsych-instructions-nav {
+	text-align: center;
+}
+
+.fixation-cross {
+	font-size: 60px;
+	color: white;
+}
+
+/* https://stackoverflow.com/a/21003770/13078832 */
+.noSelect {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	user-select: none;
+}
+
+#progress-container {
+	position: absolute;
+	top: 20vh;
+	left: 3%;
+	height: 60vh;
+	visibility: visible;
+}
+
+#progress-bar-wrapper {
+	width: 50px;
+	height: 100%;
+	background-color: #f0f0f0;
+}
+
+#progress-bar {
+	width: 100%;
+	height: 0%;
+	background-color: #4caf50;
+	position: absolute;
+	bottom: 0;
+}
+
+#progress-text {
+	position: absolute;
+	left: 50%;
+	bottom: 5px;
+	transform: translate(-50%);
+	font-size: 14px;
+}
+
+#progress-label {
+	position: absolute;
+	transform: rotate(-90deg);
+	bottom: 50%;
+	left: -60px;
+	font-weight: bold;
+}
+
+#global-instructions-timer-container {
+	position: absolute;
+	top: 1%;
+	left: 90%;
+	text-align: center;
+	visibility: hidden;
+	font-size: 2em;
+	line-height: 0;
+}
+
+#points_counter_container {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 2%;
+	left: 50%;
+	transform: translate(-50%, 0%);
+}
+
+#points_counter_container img {
+	height: auto;
+	width: 6%;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#points_counter_value {
+	font-size: 2em;
+	line-height: 1.5em;
+	margin-left: 10px;
+}
+
+/* ------------------------------------------media queries----------------------- */
+@media (width <= 1100px) {
+	#global-instructions-timer-container {
+		font-size: 1.8em;
+	}
+}
+
+@media (width <= 980px) {
+	#global-instructions-timer-container {
+		font-size: 1.5em;
+	}
+}
+
+/* 
+@media (width >= 768px) {
+
+}
+
+@media (width >= 992px) {
+
+}
+
+@media (width >= 1440px) {
+	
+}
+
+@media (width >= 2560px) {
+	
+} */
+
+/* ------------------------------------------end media queries----------------------- */
