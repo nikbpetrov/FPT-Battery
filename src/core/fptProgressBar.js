@@ -2,7 +2,6 @@ import { IDS } from './FPTBattery.js';
 
 export class fptProgressBar {
 	constructor() {
-		// this.disable = config.disable || false;
 		this.selectors = {
 			container: `#${IDS.progressContainer}`,
 			wrapper: `#${IDS.progressWrapper}`,
@@ -12,47 +11,6 @@ export class fptProgressBar {
 		};
 		this.progress = { current_duration_mins: 0, total_duration_mins: 0 };
 	}
-
-	// initialize(allTasks, savedProgress, skip_intro_trials) {
-	// 	if (this.disable) {
-	// 		return;
-	// 	}
-
-	// 	const container = document.querySelector(this.selectors.container);
-	// 	if (!container) {
-	// 		return;
-	// 	}
-
-	// 	this.calculateTotalDuration(allTasks, skip_intro_trials);
-	// 	this.restoreProgress(allTasks, savedProgress, skip_intro_trials);
-	// 	this.updateDisplay();
-	// }
-
-	// calculateTotalDuration(allTasks, skip_intro_trials) {
-	// 	this.progress.total_duration_mins = skip_intro_trials ? 0 : 2;
-	// 	for (let task of allTasks) {
-	// 		this.progress.total_duration_mins += task.duration_mins;
-	// 	}
-	// }
-
-	// restoreProgress(allTasks, savedProgress, skip_intro_trials) {
-	// 	if (
-	// 		!skip_intro_trials &&
-	// 		savedProgress.data_checkpoints.includes('experiment__welcome')
-	// 	) {
-	// 		this.progress.current_duration_mins += 2;
-	// 	}
-
-	// 	for (let task of allTasks) {
-	// 		if (
-	// 			savedProgress.data_checkpoints.includes(
-	// 				`task_${task.task_order_index}_${task.prettyname}__completed`
-	// 			)
-	// 		) {
-	// 			this.progress.current_duration_mins += task.duration_mins;
-	// 		}
-	// 	}
-	// }
 
 	updateDisplay() {
 		const container = document.querySelector(this.selectors.container);

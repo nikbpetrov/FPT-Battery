@@ -253,7 +253,6 @@ export default class Forecasting_Questions {
 
 		// Test trials
 		let test_trials_timeline = { timeline: [] };
-		console.log(this.task_data.test_trials);
 		for (let test_trial of Object.values(this.task_data.test_trials[format_ind_to_key(0, 'block')])) {
 			test_trials_timeline.timeline.push({
 				timeline: [
