@@ -20,7 +20,8 @@
     "dev:build": "vite build --watch",
     "build": "vite build",
     "build:copy": "vite build && cp -r dist/* ../../static/dist/",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@jspsych/plugin-browser-check": "^1.0.3",
@@ -45,5 +46,14 @@
     "psychology",
     "experiment"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikbpetrov/FPT-Battery.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nikbpetrov/FPT-Battery/issues"
+  },
+  "homepage": "https://github.com/nikbpetrov/FPT-Battery",
+  "author": "Nikolay Petrov"
 }
