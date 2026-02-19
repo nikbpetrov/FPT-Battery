@@ -5,7 +5,7 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: resolve(__dirname, 'src/index.js'),
-			name: 'FPTBattery',
+			name: 'initFPTBattery',
 			fileName: (format) => `fpt-battery.${format}.js`,
 			formats: ['umd', 'es'],
 		},

@@ -5,7 +5,7 @@ import htmlKeyboardResponse from '@jspsych/plugin-html-keyboard-response';
 import instructions from '@jspsych/plugin-instructions';
 import { initJsPsych } from 'jspsych';
 import { applyJsPsychPatches } from '../jspsych_patches.js';
-import { TASK_REGISTRY } from '../tasks/index.js';
+import { task_registry } from '../tasks/index.js';
 import { deepMerge } from '../utils/helpers.js';
 import { DataSaver } from './DataSaver.js';
 import { fptProgressBar } from './fptProgressBar.js';
@@ -77,6 +77,9 @@ export class FPTBattery {
 		applyJsPsychPatches(this.jsPsych);
 
 		this.trial_generators = this.get_trial_generators();
+
+		// just so we can allow some advanced usage
+		this.task_registry = task_registry;
 	}
 
 	get_default_settings() {
@@ -182,7 +185,7 @@ export class FPTBattery {
 				custom_task_settings.completed_checkpoints = this.session.saved_progress.data_checkpoints;
 			}
 
-			const TaskClass = TASK_REGISTRY[task_name];
+			const TaskClass = this.task_registry[task_name];
 			if (!TaskClass) {
 				console.warn(`Task "${task_name}" not found in registry - skipping.`);
 				continue;
@@ -758,20 +761,6 @@ export class FPTBattery {
 		this.jsPsych.run(this.timeline);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export function initFPTBattery(userConfig = {}) {
 	const battery = new FPTBattery(userConfig);

@@ -13,7 +13,7 @@ import NumberSeries from './number_series_task.js';
 import RavenMatrix from './raven_matrix_task.js';
 import TimeSeries from './time_series_task.js';
 
-export const TASK_REGISTRY = {
+export const task_registry = {
 	number_series: NumberSeries,
 	leapfrog: Leapfrog,
 	cognitive_reflection: CognitiveReflection,

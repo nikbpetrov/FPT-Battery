@@ -14,23 +14,13 @@ import './styles/number_series_task.css';
 import './styles/raven_matrix_task.css';
 import './styles/time_series_task.css';
 
-import { FPTBattery, initFPTBattery } from './core/FPTBattery.js';
-import { DataSaver } from './core/DataSaver.js';
-import { Experiment } from './core/Experiment.js';
-import { fptProgressBar } from './core/fptProgressBar.js';
-import { fptTrialTimer } from './core/fptTrialTimer.js';
-import * as tasks from './tasks/index.js';
-import { TASK_REGISTRY } from './tasks/index.js';
+// import { FPTBattery, initFPTBattery } from './core/FPTBattery.js';
+// import { DataSaver } from './core/DataSaver.js';
+// import { fptProgressBar } from './core/fptProgressBar.js';
+// import { fptTrialTimer } from './core/fptTrialTimer.js';
+// import * as tasks from './tasks/index.js';
+// import { task_registry } from './tasks/index.js';
+import { initFPTBattery } from './core/FPTBattery.js';
 // import { get_simulation_options } from './utils/simulation.js';
 
-export {
-	initFPTBattery,
-	FPTBattery,
-	DataSaver,
-	Experiment,
-	// get_simulation_options,
-	fptProgressBar,
-	fptTrialTimer,
-	TASK_REGISTRY,
-	tasks,
-};
+export default initFPTBattery;
