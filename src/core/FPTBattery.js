@@ -84,7 +84,7 @@ export class FPTBattery {
 
 	get_default_settings() {
 		return {
-			root_element_id: null,
+			root_element: undefined,
 			jsPsychOptions: {},
 			session: {
 				saved_progress: {
@@ -120,21 +120,37 @@ export class FPTBattery {
 		if (!this.settings.tasks || this.settings.tasks.length === 0) {
 			throw new Error('FPTBattery: No tasks configured');
 		}
-	
-		const root = this.settings.root_element_id;
-		if (!root) {
-			throw new Error(
-				'FPTBattery: root_element_id is required (query selector string or HTMLElement, e.g. "#fpt-root")'
-			);
-		}
 	}
 
 	setup_dom() {
-		const root = document.querySelector(`#${this.settings.root_element_id}`);
-		if (!root) {
-			throw new Error(
-				`FPTBattery: Cannot find root element with id "${this.settings.root_element_id}"`
-			);
+		// ---- Logic inspired by jsPsych's prepareDom() ----
+		// set DOM element where FPTBattery will render content
+		// if undefined, then FPTBattery will use the <body> tag and the entire page
+		if (typeof this.settings.root_element === "undefined") {
+			// check if there is a body element on the page
+			let body = document.body;
+			if (!body) {
+				body = document.createElement("body");
+				document.documentElement.appendChild(body);
+			}
+			// using the full page, so we need the HTML element to have 100% height, and body to be full
+			// width and height with no margin
+			document.querySelector("html").style.height = "100%";
+
+			body.style.margin = "0px";
+			body.style.height = "100%";
+			body.style.width = "100%";
+			this.settings.root_element = body;
+		} else {
+			// make sure that the display element exists on the page
+			const display = this.settings.root_element instanceof Element
+				? this.settings.root_element
+				: document.querySelector("#" + this.settings.root_element);
+			if (display === null) {
+				throw new Error("The root_element specified in initFPTBattery() does not exist in the DOM.");
+			} else {
+				this.settings.root_element = display;
+			}
 		}
 	
 		if (!this.settings.progressbar.disable) {
@@ -148,7 +164,7 @@ export class FPTBattery {
 				<div id="${IDS.progressLabel}">PROGRESS</div>
 				<div id="${IDS.progressText}">0%</div>
 			`;
-			root.appendChild(progressContainer);
+			this.settings.root_element.appendChild(progressContainer);
 		}
 	
 		// will always add it as it defaults to display: none but this sucks
@@ -159,16 +175,16 @@ export class FPTBattery {
 		pointsValue.id = IDS.pointsCounterValue;
 		pointsValue.textContent = '0';
 		pointsCounter.appendChild(pointsValue);
-		root.appendChild(pointsCounter);
+		this.settings.root_element.appendChild(pointsCounter);
 	
 		const timerContainer = document.createElement('div');
 		timerContainer.id = IDS.timerContainer;
 		timerContainer.innerHTML = `<p>&#8987;<span id="${IDS.timerValue}"></span></p>`;
-		root.appendChild(timerContainer);
+		this.settings.root_element.appendChild(timerContainer);
 	
 		const jspsychTarget = document.createElement('div');
 		jspsychTarget.id = IDS.jspsychTarget;
-		root.appendChild(jspsychTarget);
+		this.settings.root_element.appendChild(jspsychTarget);
 	}
 
 	build_timeline() {
