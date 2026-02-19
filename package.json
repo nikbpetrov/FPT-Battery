@@ -1,6 +1,6 @@
 {
   "name": "@nikbpetrov/fpt-battery-test",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Forecasting Proficiency Test - A jspsych-based experiment battery",
   "type": "module",
   "main": "./dist/fpt-battery.umd.js",
