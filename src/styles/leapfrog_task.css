@@ -1,0 +1,16 @@
+.fpt--leapfrog .leapfrog-trial-class {
+	width: 80%;
+}
+
+.fpt--leapfrog #leapfrog_options_container {
+	display: flex;
+	justify-content: space-around;
+	font-size: 2em;
+	margin-top: 2em;
+	height: 50%;
+}
+
+.fpt--leapfrog #leapfrog_options_container span {
+	font-size: 0.5em;
+	font-style: italic;
+}

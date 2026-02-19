@@ -1,0 +1,100 @@
+.fpt--admc #jspsych-html-slider-response-wrapper {
+	text-align: left;
+}
+
+.fpt--admc .jspsych-html-slider-response-container {
+	width: 80% !important;
+}
+
+.fpt--admc .jspsych-survey-multi-choice-horizontal {
+	text-align: center !important;
+}
+
+.fpt--admc .cal-statement {
+	margin: 6em 0 1em;
+}
+
+.fpt--admc .cal-choice {
+	margin-bottom: 1em;
+}
+
+.fpt--admc .slider-labels-container {
+	position: relative;
+	margin: 0 auto 3em;
+	width: 80%;
+}
+
+.fpt--admc .labels-container div {
+	border: 1px solid transparent;
+	display: inline-block;
+	position: absolute;
+	text-align: center;
+	width: 20%;
+}
+
+.fpt--admc table {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px solid black;
+}
+
+.fpt--admc th,
+.fpt--admc td {
+	text-align: center;
+	padding: 8px;
+}
+
+.fpt--admc th {
+	background-color: #f2f2f2;
+	border-bottom: 1px solid black;
+}
+
+.fpt--admc th:first-child {
+	border-left: 1px solid transparent;
+	border-top: 1px solid transparent;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	background-color: transparent;
+}
+
+.fpt--admc tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.fpt--admc tr td:first-child {
+	border-right: 1px solid black;
+}
+
+.fpt--admc .admc-dr-numbers-desc-container {
+	display: flex;
+	justify-content: space-around;
+	border: 1px solid black;
+	text-align: center;
+}
+
+.fpt--admc .jspsych-survey-multi-select-question {
+	text-align: center !important;
+}
+
+.fpt--admc #jspsych-survey-multi-select-form {
+	max-width: 80%;
+	margin: auto;
+}
+
+.fpt--admc .labels-container2 div {
+	border: 1px solid transparent;
+	display: inline-block;
+	position: absolute;
+	text-align: center;
+	width: 10%;
+}
+
+.fpt--admc .cal-instructions-img {
+	border: 1px solid black;
+	width: 90%;
+}
+
+.fpt--admc #jspsych-survey-multi-select-next,
+.fpt--admc #jspsych-html-slider-response-next {
+	margin-bottom: 3%;
+}

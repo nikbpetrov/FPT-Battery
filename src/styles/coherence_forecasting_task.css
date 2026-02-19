@@ -1,0 +1,22 @@
+.fpt--coherence_forecasting .statement {
+	margin: 6em 0 1em;
+}
+
+.fpt--coherence_forecasting .slider-labels-container {
+	position: relative;
+	margin: 0 auto 3em;
+	width: 80%;
+}
+
+.fpt--coherence_forecasting .labels-container div {
+	border: 1px solid transparent;
+	display: inline-block;
+	position: absolute;
+	text-align: center;
+	width: 10%;
+}
+
+.fpt--coherence_forecasting .content-size {
+	width: 80vw;
+	margin-bottom: 3%;
+}
