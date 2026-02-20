@@ -30,7 +30,7 @@
 	border-right: 2px solid orange;
 }
 
-.fpt--bayesian_update#curr_draw_balls,
+.fpt--bayesian_update #curr_draw_balls,
 .fpt--bayesian_update #past_draw_balls {
 	position: relative;
 	flex: 1;
