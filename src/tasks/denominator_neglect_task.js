@@ -76,7 +76,7 @@ export default class Denominator_Neglect {
 
 		// ------------------------PRACTICE TRIALS DATA
 		let pt_left_lottery_types = this.jsPsych.randomization.shuffle(
-expandArray(
+			expandArray(
 				['small', 'large'],
 				this.settings.pt_trials_n / 2
 			)
@@ -85,7 +85,7 @@ expandArray(
 			conflict:
 				this.settings.task_version === 'A'
 					? this.jsPsych.randomization.shuffle(
-expandArray(
+							expandArray(
 								this.settings.denominator_display_types.task_version_A,
 								this.settings.pt_trials_n / 8
 							)
@@ -97,7 +97,7 @@ expandArray(
 			harmony:
 				this.settings.task_version === 'A'
 					? this.jsPsych.randomization.shuffle(
-expandArray(
+							expandArray(
 								this.settings.denominator_display_types.task_version_A,
 								this.settings.pt_trials_n / 8
 							)
@@ -108,7 +108,7 @@ expandArray(
 						),
 		};
 		const pt_choice_types = this.jsPsych.randomization.shuffle(
-expandArray(
+			expandArray(
 				['conflict', 'harmony'],
 				this.settings.pt_trials_n / 2
 			)
@@ -191,7 +191,7 @@ expandArray(
 
 		// ------------------------TEST TRIALS DATA
 		let left_lottery_types = this.jsPsych.randomization.shuffle(
-expandArray(
+			expandArray(
 				['small', 'large'],
 				this.settings.test_trials_n / 2
 			)
@@ -200,7 +200,7 @@ expandArray(
 			conflict:
 				this.settings.task_version === 'A'
 					? this.jsPsych.randomization.shuffle(
-expandArray(
+							expandArray(
 								this.settings.denominator_display_types.task_version_A,
 								this.settings.test_trials_n / 8
 							)
@@ -212,7 +212,7 @@ expandArray(
 			harmony:
 				this.settings.task_version === 'A'
 					? this.jsPsych.randomization.shuffle(
-expandArray(
+							expandArray(
 								this.settings.denominator_display_types.task_version_A,
 								this.settings.test_trials_n / 8
 							)
