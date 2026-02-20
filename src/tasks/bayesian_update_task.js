@@ -106,7 +106,7 @@ export default class Bayesian_Update {
 			this.jsPsych.randomization.shuffle(
 				expandArray(
 					this.settings.ball_splits,
-					this.settings.unique_pt_trials_n / 2
+					this.settings.unique_pt_trials_n / this.settings.ball_splits.length
 				)
 			),
 			this.settings.draws_per_unique_trial
@@ -212,7 +212,7 @@ export default class Bayesian_Update {
 			this.jsPsych.randomization.shuffle(
 				expandArray(
 					this.settings.ball_splits,
-					this.settings.unique_test_trials_n / 2
+					this.settings.unique_test_trials_n / this.settings.ball_splits.length
 				)
 			),
 			this.settings.draws_per_unique_trial
@@ -622,7 +622,7 @@ export default class Bayesian_Update {
 				if (self.settings.task_version == 'easy') {
 					return [
 						`<p class="instructions-title" style="text-align: center">The box and balls task - Predicting the Next Box</p>
-                            <p>We will now progress to the test decisions. The task will be broken into eight (8) sets of five (5) decisions. After every set of five decisions, the task will reset and you will start from the beginning, with no information about which of the two boxes is the one in the middle.</p>
+                            <p>We will now progress to the test decisions. The task will be broken into ${self.settings.unique_test_trials_n} sets of ${self.settings.draws_per_unique_trial} decisions. After every set of ${self.settings.draws_per_unique_trial} decisions, the task will reset and you will start from the beginning, with no information about which of the two boxes is the one in the middle.</p>
                             <p>Remember that:</p>
                             <ul>
                                 <li>the randomly selected box (represented by the one that has black balls) is one of the two boxes (majority red or majority blue boxes)</li>
@@ -634,7 +634,7 @@ export default class Bayesian_Update {
 				} else {
 					return [
 						`<p class="instructions-title" style="text-align: center">The box and balls task - Predicting the Next Ball</p>
-                            <p>We will now progress to the test decisions. The task will be broken into eight (8) sets of five (5) decisions. After every set of five decisions, the task will reset and you will start from the beginning, with no information about which of the two boxes is the one in the middle.</p>
+                            <p>We will now progress to the test decisions. The task will be broken into ${self.settings.unique_test_trials_n} sets of ${self.settings.draws_per_unique_trial} decisions. After every set of ${self.settings.draws_per_unique_trial} decisions, the task will reset and you will start from the beginning, with no information about which of the two boxes is the one in the middle.</p>
                             <p>Remember that:</p>
                             <ul>
                                 <li>the randomly selected box (represented by the one that has black balls) is one of the two boxes (majority red or majority blue boxes)</li>
