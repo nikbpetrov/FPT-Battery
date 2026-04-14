@@ -1,6 +1,6 @@
 {
   "name": "fpt-battery",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Forecasting Proficiency Test - A jspsych-based experiment battery",
   "type": "module",
   "main": "./dist/fpt-battery.umd.js",
