@@ -16,7 +16,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "vite --host",
+    "dev": "ln -sfn ../assets demo/assets 2>/dev/null; vite --config vite.demo.config.js --host",
     "dev:build": "vite build --watch",
     "build": "vite build",
     "preview": "vite preview",

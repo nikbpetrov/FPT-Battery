@@ -135,6 +135,58 @@ Note that the definition of the `jsPsych`'s trial `type` param depends on your i
 
 You can also modify other trial generators. You are welcome to inspect [the class source code](./src/core/FPTBattery.js) - it has a `get_trial_generators` method that initializes all of those
 
+# Development
+
+## Local dev
+
+1. `npm install`
+2. Create a `demo/` directory with an `index.html` and `index.js`:
+
+**demo/index.html**
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>FPT Battery Demo</title>
+    </head>
+    <body></body>
+    <script type="module" src="index.js"></script>
+</html>
+```
+
+**demo/index.js**
+```js
+import initFPTBattery from '../src/index.js';
+
+const config = {
+    tasks: [
+        { task_name: 'number_series', custom_task_settings: {} },
+    ],
+    media_basepath: './assets/',
+    skip_intro_trials: true,
+};
+
+const fpt_battery = initFPTBattery(config);
+fpt_battery.run();
+```
+
+3. `npm run dev` — symlinks assets into `demo/` and starts a Vite dev server on `localhost:3001` with hot reload
+4. Edit `demo/index.js` to test different tasks and configurations
+
+## Publishing a new version
+
+1. Run `npm run build` locally and verify it succeeds
+2. Bump `version` in [package.json](./package.json)
+3. Commit: `git commit -am "v0.3.0"`
+4. Tag: `git tag v0.3.0`
+5. Push: `git push origin main --tags`
+
+Pushing a `v*` tag triggers the [GitHub Actions workflow](./.github/workflows/publish.yml), which builds and publishes to npm automatically.
+
+## Assets
+
+If a new asset is added, must add it to the hosted path - see `media_basepath` config.
+
 # TODO
 
 - [] fork jspsych, submodule it and apply patches
@@ -145,6 +197,7 @@ You can also modify other trial generators. You are welcome to inspect [the clas
 - [] update trial naming to always start with `task.name`
 - [] add a linter/formatter
 - [] check if task durations could also be inferrable from the timer settings
+- [] Add better assets management - autopublish/link on the hosted path or create a new server.
 - [] add docs on advanced usage
     - [] add data saving examples?
     - [] add session restart config

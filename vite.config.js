@@ -23,10 +23,4 @@ export default defineConfig({
 	},
 	plugins: [],
 	publicDir: false,
-	server: {
-		port: 3001,
-	},
-	preview: {
-		port: 3001,
-	},
 });
