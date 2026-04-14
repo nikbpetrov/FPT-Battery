@@ -207,3 +207,4 @@ If a new asset is added, must add it to the hosted path - see `media_basepath` c
         <!-- <script src="https://unpkg.com/jspsych@7.3.4"></script>
         <script src="https://unpkg.com/@jspsych/plugin-instructions@1.1.4"></script> -->
     - [ ] modifying FPT battery instance classes
+- [ ] track jspsych versions (7/8)
