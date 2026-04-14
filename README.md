@@ -189,21 +189,21 @@ If a new asset is added, must add it to the hosted path - see `media_basepath` c
 
 # TODO
 
-- [] fork jspsych, submodule it and apply patches
-    - [] see/migrate apply_patches.js
-    - [] also add "write_event_to_interaction_data"
-    - [] apply patches to plugins where relevant, e.g. survey-html needs simulation methods
-- [] after above, then test & commit simulation opts handling
-- [] update trial naming to always start with `task.name`
-- [] add a linter/formatter
-- [] check if task durations could also be inferrable from the timer settings
-- [] Add better assets management - autopublish/link on the hosted path or create a new server.
-- [] add docs on advanced usage
-    - [] add data saving examples?
-    - [] add session restart config
-    - [] modifying jspsych trials
+- [ ] fork jspsych, submodule it and apply patches
+    - [ ] see/migrate apply_patches.js
+    - [ ] also add "write_event_to_interaction_data"
+    - [ ] apply patches to plugins where relevant, e.g. survey-html needs simulation methods
+- [ ] after above, then test & commit simulation opts handling
+- [ ] update trial naming to always start with `task.name`
+- [ ] add a linter/formatter
+- [ ] check if task durations could also be inferrable from the timer settings
+- [ ] Add better assets management - autopublish/link on the hosted path or create a new server.
+- [ ] add docs on advanced usage
+    - [ ] add data saving examples?
+    - [ ] add session restart config
+    - [ ] modifying jspsych trials
         <!-- This options in case you want to modify stuff and are using CDN-hosted files -->
         <!-- Note that this version of jsPsych is not the one packaged or used w/ the FPT battery -->
         <!-- <script src="https://unpkg.com/jspsych@7.3.4"></script>
         <script src="https://unpkg.com/@jspsych/plugin-instructions@1.1.4"></script> -->
-    - [] modifying FPT battery instance classes
+    - [ ] modifying FPT battery instance classes
