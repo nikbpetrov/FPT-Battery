@@ -306,7 +306,7 @@ export default class Time_Series {
 			pages: [
 				`<p class="instructions-title" style="text-align: center">Predict the next point on the graph</p>
                     <p>The previous example was only a demonstration. You will now complete ${self.settings.pt_trials_n} practice items. These will not count towards your score.</p>
-                    <p>These items will vary in difficulty in several ways. For example, in some trials, we will give you 30 datapoints to infer the trend from, while in others we will give you only 10.</p>
+                    <p>These items will vary in difficulty.</p>
                     <p>Please proceed to the next page to complete the practice items.</p>
                     `,
 			],
