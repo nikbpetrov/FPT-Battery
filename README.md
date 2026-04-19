@@ -44,6 +44,40 @@ const fpt_battery = initFPTBattery(config);
 fpt_battery.run();
 ```
 
+# Hosting online
+
+This package is frontend-only, so you can host an experiment as a static site. There is no need for your own backend unless you want custom server-side logic.
+
+## Github Pages + DataPipe + OSF
+
+Host a small static site on Github Pages (free) with an `index.html` that loads `fpt-battery` from a CDN (as in the example above) plus any custom JS/CSS you need. Following [Github's instructions](https://docs.github.com/en/pages/quickstart) and see this [example repository](https://github.com/nikbpetrov/nikbpetrov.github.io).
+
+**NB** Make sure you also download the `assets` folder from this repository and set `media_basepath` accordingly (usually your Github Pages site followed by `assets`, e.g. `media_basepath: <github_username>.github.io/assets/`) in the `config`. If you do not do this, our own hosted server will serve these files which might be slower depending on traffic, rate limits and geograhpical local of end-users.
+
+If you want backendless data collection, [DataPipe](https://pipe.jspsych.org/) is a good fit: it sends participant data to [OSF](https://osf.io/), but it does **not** host your experiment. The usual flow is:
+
+1. Create an OSF project.
+2. Link your OSF account in DataPipe.
+3. Create a DataPipe experiment pointing at that OSF project.
+4. Host your experiment separately on GitHub Pages, Netlify, university hosting, etc.
+5. Add the generated DataPipe code snippet to your study for saving data.
+
+Precise instructions from DataPipe can be found [here](https://pipe.jspsych.org/getting-started).
+
+To connect this to the `fpt-battery` to allow data saving you will need to adjust the `data_saving` function in the `config`. For an example, see [here](https://github.com/nikbpetrov/nikbpetrov.github.io/blob/main/index.html).
+
+Practical limits and caveats:
+
+- DataPipe has a `32 MB` limit per request. This is usually plenty for jsPsych-style JSON/CSV data, but large binary uploads are more likely to hit it.
+- OSF Storage caps are `5 GB` total for private projects/components and `50 GB` total for public ones, with `5 GB` max per individual file.
+- OSF visibility follows the receiving project's/component's privacy settings: private means only collaborators can see the data; public means anyone can.
+- Each OSF component gets its own storage cap, so using a dedicated data component can help keep things organized.
+- DataPipe normally does not store your data, but if OSF upload fails it will temporarily cache encrypted files and retry for about a week.
+- Data validation and session limits in DataPipe are worth enabling during data collection to reduce spam or malformed uploads.
+- If you care about storage region or compliance, choose the OSF storage location when creating the project; OSF says this cannot be changed later.
+
+For current details, see the [DataPipe FAQ](https://pipe.jspsych.org/faq), the [DataPipe getting started guide](https://pipe.jspsych.org/getting-started), and OSF's docs on [project storage limits](https://help.osf.io/article/353-welcome-to-projects) and [file uploads](https://help.osf.io/article/276-upload-files).
+
 # Configuration/Customization
 
 ## Core battery settings
@@ -179,9 +213,10 @@ fpt_battery.run();
 2. Bump `version` in [package.json](./package.json)
 3. Commit: `git commit -am "v0.3.0"`
 4. Tag: `git tag v0.3.0`
-5. Push: `git push origin main --tags`
+5. Push the commit: `git push origin main`
+6. Push the tag: `git push origin v0.3.0`
 
-Pushing a `v*` tag triggers the [GitHub Actions workflow](./.github/workflows/publish.yml), which builds and publishes to npm automatically.
+Pushing a `v*` tag triggers the [GitHub Actions workflow](./.github/workflows/publish.yml), which builds and publishes to npm automatically. The tag must be pushed separately from the commit, otherwise GitHub may not trigger the workflow.
 
 ## Assets
 
