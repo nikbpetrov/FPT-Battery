@@ -66,6 +66,8 @@ Precise instructions from DataPipe can be found [here](https://pipe.jspsych.org/
 
 To connect this to the `fpt-battery` to allow data saving you will need to adjust the `data_saving` function in the `config`. For an example, see [here](https://github.com/nikbpetrov/nikbpetrov.github.io/blob/main/index.html).
 
+**NB** Note that `fpt-battery` saves data on certain checkpoints, instead of a single file at the end, as most jspsych-based backend solutions assume. The checkpointing allows more reliable data saving and to verify partial completions (in case of paid participants who encounter problems). This means that your backend, in this case OSF, will have to accommodate this - which OSF does. Though you'd need to recombine data at the end to get all trials from all checkpoints for individual users. [Here](https://github.com/nikbpetrov/nikbpetrov.github.io/blob/main/combine_datapipe_sessions.py) you can find a Python utility script to help with that, and your favourite LLM can translate it to different langagues if needed.
+
 Practical limits and caveats:
 
 - DataPipe has a `32 MB` limit per request. This is usually plenty for jsPsych-style JSON/CSV data, but large binary uploads are more likely to hit it.
