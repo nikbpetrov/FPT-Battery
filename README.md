@@ -46,7 +46,18 @@ fpt_battery.run();
 
 # Hosting online
 
-This package is frontend-only, so you can host an experiment as a static site. There is no need for your own backend unless you want custom server-side logic.
+This package is frontend-only, so you need a backend and somewhere to store your data.
+
+## Jatos
+
+[Jatos](https://www.jatos.org/) (Just Another Tool for Online Studies) is a free and open-source solution to manage your experiments. You deploy it on your own server (a cheap VPS, your university etc) so that it complies with the data security policies you need. It is sponsored by the European Society for Cognitive Psychology (ESCoP).
+
+Navigating Jatos itself can be steep at first, but they have [extensive documentation](https://www.jatos.org/Whats-JATOS.html). Integrating `fpt-battery` is also quite easy.
+
+
+The quickest way to get start is to simply download the `fpt-battery.jzip` in this repository and `Import Study` [in Jatos](https://www.jatos.org/Get-started.html#3-download-and-import-an-example-study).
+
+To quickly demo this setup, use Jatos' [demo server](https://www.jatos.org/JATOS-Tryout-Server.html). Please make sure you use your own login (not the generic ones provided) as we've found uploading a study problematic. Once you are logged in, import the `fpt-battery.jzip`.
 
 ## Github Pages + DataPipe + OSF
 
